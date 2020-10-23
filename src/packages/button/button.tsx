@@ -18,7 +18,8 @@ interface BaseButtonProps{
     disabled?:boolean,
     size?:SizeType,
     btnType?:ButtonType,
-    href?:string
+    href?:string,
+    style?:React.CSSProperties;
 }
 const Button:React.FC<ButtonProps> = (props)=>{
     const {
@@ -28,6 +29,7 @@ const Button:React.FC<ButtonProps> = (props)=>{
         btnType,
         href,
         className,
+        style,
         ...restProps
     } = props
     const classes = classNames('btn',className,{
@@ -39,6 +41,7 @@ const Button:React.FC<ButtonProps> = (props)=>{
         return (
             <a 
             {...restProps}
+            style={style}
             className={classes}
             href={href}
             >
@@ -49,6 +52,7 @@ const Button:React.FC<ButtonProps> = (props)=>{
         return (
             <button
             {...restProps}
+            style={style}
             className={classes}
             disabled={disabled}
             >
