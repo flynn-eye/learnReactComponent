@@ -14,6 +14,7 @@ export interface CheckBoxProps {
     required?: boolean
     autoFocus?: boolean
     value?: any
+    title?: string
 }
 
 const defaultCheckBox = {
@@ -25,10 +26,13 @@ const defaultCheckBox = {
     onBlur(){},
     onChange(){},
     onclick(){},
+    title: '',
 }
 export const CheckBox = (props: CheckBoxProps = defaultCheckBox) => {
-    const handleChange = (e: ChangeEvent) => {
-        console.warn(e)
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { disabled, onChange } = props;
+        if (disabled) return
+        onChange(e.target.checked)
     }
     return (
         <span>
