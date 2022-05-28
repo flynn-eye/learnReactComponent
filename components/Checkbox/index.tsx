@@ -22,23 +22,22 @@ const defaultCheckBox = {
     style: {},
     checked: false,
     disabled: false,
-    onFocus(){},
-    onBlur(){},
-    onChange(){},
-    onclick(){},
+    onFocus() {},
+    onBlur() {},
+    onChange() {},
+    onclick() {},
     title: '',
 }
 export const CheckBox = (props: CheckBoxProps = defaultCheckBox) => {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const { disabled, onChange } = props;
+        const { disabled, onChange } = props
         if (disabled) return
         onChange(e.target.checked)
     }
     return (
         <span>
-            <input type='checkbox' {...props} onChange={ handleChange } />
+            <input type="checkbox" {...props} onChange={handleChange} />
             <span />
         </span>
     )
 }
-
